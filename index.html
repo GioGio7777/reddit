@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon"
+        href="https://cdn3.iconfinder.com/data/icons/2018-social-media-logotypes/1000/2018_social_media_popular_app_logo_reddit-512.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+
+    <title>Reddit Subreddit</title>
+
+</head>
+
+<style>
+    #input {
+        position: absolute;
+        top:10%;
+        left: 2%;
+        border: 2px solid rgb(0, 0, 0);
+        border-radius: 60px;
+        height: 200px;
+        width: 60%;
+
+
+
+    }
+
+    #subreddit {
+        position: relative;
+        top:5%;
+        left:5%;
+        width:30%;
+
+
+    }
+
+    #trend{
+        position: absolute;
+        width:300px;
+        top:5%;
+        left :40%;
+    }
+
+
+</style>
+
+<body>
+    <div id="input">
+
+        <div class="input-group mb-3" id="subreddit">
+            <span class="input-group-text" id="basic-addon1">r/</span>
+            <input type="text" id = "inputField" class="form-control" placeholder="subreddit" aria-label="Username"
+                aria-describedby="basic-addon1">
+        </div>
+
+        <select class="form-select" id = "trend" aria-label="Disabled select example" disabled>
+            <option selected>Hot</option>
+            <option value="2">New</option>
+            <option value="3">Top</option>
+            <option value="4">Rising</option>
+          </select>
+
+          <button type="button" class="btn btn-outline-dark">Reddit</button>
+
+    </div>
+
+    <div id="subreddit">
+        <div id="meme"></div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js"
+        integrity="sha384-KsvD1yqQ1/1+IA7gi3P0tyJcT3vR+NdBTt13hSJ2lnve8agRGXTTyNaBYmCR/Nwi" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.min.js"
+        integrity="sha384-nsg8ua9HAw1y0W1btsyWgBklPnCUAFLuTMS2G72MMONqmOymq585AcH49TLBQObG" crossorigin="anonymous">
+    </script>
+    <script src="app.js"></script>
+    <script src="ui.js"></script>
+
+</body>
+
+</html>
