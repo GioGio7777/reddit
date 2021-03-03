@@ -5,12 +5,6 @@ const range = document.getElementById("range");
 const t = document.getElementById("time");
 
 
-var i = 0;
-
-
-
-
-
 eventListeners();
 
 
@@ -85,8 +79,8 @@ function showAnother() {
         option.text = "All Time";
         form.appendChild(option);
        
-        /*Bir döngü ile  de basitce ve daha az satırla halledirlebilir 
-        ama ben böyle uygun gördüm
+        /*Bir döngü ile  de basitce ve daha az satırla halledilebilir 
+        ama ben böyle uygun gördüm.
         */
 
         document.getElementById("input").appendChild(form);
@@ -98,9 +92,7 @@ function showAnother() {
 
     }
 
-    else{
-        t.remove();
-    }
+    
 
 
 }
@@ -115,19 +107,46 @@ function lookingInputField(e) {
 }
 
 function memeTime() {
+
+    
    
+    var subre = inputField.value;
+    var tt = time.value;
+    var rng = Number(range.value);
 
     document.getElementById("input").remove();
-    fetch("https://www.reddit.com/r/LeagueOfMemes/new/.json?limit=4")
+    fetch(`https://www.reddit.com/r/${subre}/${tt}/.json?limit=${rng}`)
         .then(response => response.json())
         .then(data => {
+
+            for (var j= 0;j<rng;j++){
             const datas = data.data;
             const children = datas.children;
-            const meme = children[3].data;
+            const meme = children[j].data;
             const subreddit = meme.subreddit;
             const title = meme.title;
+            const upvote= meme.ups;
+
+            const image = meme.url;
+            
+            
 
             console.log(title);
+            console.log(upvote);
+           
+            try {
+            body.innerHTML +=`<img src="${image}" alt="Girl in a jacket">`;
+            body.innerHTML +="<br>";
+              
+            }
+            catch(err) {
+
+                body.innerHTML += "resimsiz";             
+            }
+         
+            
+
+            }
         })
 
 }
