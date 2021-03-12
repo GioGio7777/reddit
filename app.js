@@ -3,6 +3,9 @@ const time = document.getElementById("trend");
 const memeME = document.getElementById("reddit");
 const range = document.getElementById("range");
 const t = document.getElementById("time");
+//import UI from "./ui";
+const ui = new UI();
+
 
 
 eventListeners();
@@ -78,21 +81,21 @@ function showAnother() {
         option.value = "All Time";
         option.text = "All Time";
         form.appendChild(option);
-       
+
         /*Bir döngü ile  de basitce ve daha az satırla halledilebilir 
         ama ben böyle uygun gördüm.
         */
 
         document.getElementById("input").appendChild(form);
 
-       
 
-      
+
+
 
 
     }
 
-    
+
 
 
 }
@@ -108,8 +111,8 @@ function lookingInputField(e) {
 
 function memeTime() {
 
-    
-   
+
+
     var subre = inputField.value;
     var tt = time.value;
     var rng = Number(range.value);
@@ -119,32 +122,71 @@ function memeTime() {
         .then(response => response.json())
         .then(data => {
 
-            for (var j= 0;j<rng;j++){
-            const datas = data.data;
-            const children = datas.children;
-            const meme = children[j].data;
-            const subreddit = meme.subreddit;
-            const title = meme.title;
-            const upvote= meme.ups;
+            for (var j = 0; j < rng; j++) {
 
-            const image = meme.url;
-            
-            
+                const datas = data.data;
+                const children = datas.children;
+                const meme = children[j].data;
+                const subreddit = meme.subreddit;
+                const title = meme.title;
+                const upvote = meme.ups;
+                const image = meme.url;
+                const id = meme.id;
+                const author = meme.author;
 
-            console.log(title);
-            console.log(upvote);
-           
-            try {
-            body.innerHTML +=`<img src="${image}" alt="Girl in a jacket">`;
-            body.innerHTML +="<br>";
-              
-            }
-            catch(err) {
 
-                body.innerHTML += "resimsiz";             
-            }
-         
-            
+
+
+
+
+                console.log(image);
+                
+
+            /*   try {
+                    document.getElementById("meme").innerHTML += ` 
+        <div class="card" style="width: 40rem;">
+        <img src="${image}" class="card-img-top" alt="error">
+        <div class="card-body">
+          <h5 class="card-title">${author}</h5>
+          <p class="card-text">${title}</p>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">Upvote:${upvote}</li>
+          
+        </ul>
+        <div class="card-body">
+          <a href="https://www.reddit.com/r/${subre}/comments/${id}/${title}/" target ="_blank" class="card-link">Go to post </a>
+        </div>
+      </div>
+      </div>
+`;
+                    document.getElementById("meme").innerHTML += "<br>";
+
+                } catch (err) {
+
+
+                }
+
+                */
+
+
+
+                var mem = {
+                    subreddit: subreddit,
+                    title: title,
+                    upvote: upvote,
+                    image: image,
+                    id: id,
+                    author: author
+
+                };
+
+                ui.getValue(mem, subre);
+             ui.userInterface();
+
+
+
+
 
             }
         })
