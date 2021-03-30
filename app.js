@@ -14,7 +14,7 @@ eventListeners();
 function eventListeners() {
 
     document.addEventListener('DOMContentLoaded', myFunction);
-    inputField.addEventListener("keypress", lookingInputField);
+    inputField.addEventListener("change", lookingInputField);
     memeME.addEventListener("click", memeTime);
     range.addEventListener("click", rangeValue);
     trend.addEventListener("click", showAnother);
